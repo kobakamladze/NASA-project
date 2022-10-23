@@ -8,9 +8,10 @@ function httpGetPlanets() {
   return axios.get(`${API_URL}/planets`).then(({ data: response }) => response);
 }
 
-async function httpGetLaunches() {
+function httpGetLaunches() {
   // TODO: Once API is ready.
   // Load launches, sort by flight number, and return as JSON.
+  return axios(`${API_URL}/launches`).then(({ data: response }) => response);
 }
 
 async function httpSubmitLaunch(launch) {
