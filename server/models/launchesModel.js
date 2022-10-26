@@ -24,7 +24,7 @@ function addNewLaunch(newLaunch) {
   const launchesList = Array.from(launchesMap.values());
   const latestLaunch = _.cloneDeep(_.last(launchesList));
 
-  let { flightNumber: latestFlightNumber } = latestLaunch;
+  let latestFlightNumber = latestLaunch?.flightNumber || 0;
   const newFlightNumber = (latestFlightNumber += 1);
 
   const success = new Date(newLaunch.launchDate) > Date.now();
@@ -40,4 +40,12 @@ function addNewLaunch(newLaunch) {
   return launchesMap.get(newFlightNumber);
 }
 
-export { launchesMap, getAllLaunches, addNewLaunch };
+function deleteLaunch(launchId) {
+  const launchToCancel = launchesMap.get(launchId);
+
+  launchesMap.delete(launchId);
+
+  return launchToCancel;
+}
+
+export { getAllLaunches, addNewLaunch, deleteLaunch };
