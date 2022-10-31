@@ -3,10 +3,10 @@ import path from "path";
 import morgan from "morgan";
 import express from "express";
 
-import { __dirname } from "../tools/dirname.js";
+import { __dirname } from "./tools/dirname.js";
 
-import { planetsRouter } from "../routes/planets/planetsRouter.js";
-import { launchesRouter } from "../routes/launches/launchesRouter.js";
+import { planetsRouter } from "./routes/planets/planetsRouter.js";
+import { launchesRouter } from "./routes/launches/launchesRouter.js";
 
 const app = express();
 
